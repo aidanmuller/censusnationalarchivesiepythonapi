@@ -3,8 +3,8 @@ An API for the census.nationalarchives.ie written in and for Python.
 Made for the 1911 census.
 
 # documentation
-getcensusresults(firstname, lastname, county, town)
-Returns number of results.
+getcensusresults(firstname, lastname, county, town) \n
+Returns number of results. \n
 If you do not know any parameters just replace it with ''.
 E.G getcensusresults('', 'Muller', '', '') returns the integer 15.
 
