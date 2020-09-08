@@ -23,10 +23,12 @@ def getcensus(forename='', surname='', county='', town='', result=0):
     lname = d[d.find('"odd"')+6:len(d)]
     tdpoint = lname.find('</td>')
     lname = lname[4:lname.find('</td>')]
+    link = BeautifulSoup(lname, features="lxml").find_all('a', href=True)[0]['href']
+    link = 'http://census.nationalarchives.ie{}'.format(link)
     lname = BeautifulSoup(lname, features="lxml").a.string
     fname = d[d.find('"odd"')+6:len(d)]
     fname = fname[tdpoint+5:len(d)]
     fname = fname[4:fname.find('</td')]
     fname = BeautifulSoup(fname, features="lxml").a.string
-    return str(lname), str(fname)
+    return str(lname), str(fname), link
 
